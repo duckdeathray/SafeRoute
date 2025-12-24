@@ -25,3 +25,5 @@ Out of Scope (Future Work)
   - Quick-access actions to initiate emergency calls or messages via native device services
   - Configurable escalation paths to trusted contacts or local emergency services
   - Explicit safeguards and disclaimers to prevent accidental activation
+
+Location updates are delivered on a best-effort basis and may be delayed or unavailable due to network, device, or operating system constraints.
