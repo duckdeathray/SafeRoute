@@ -26,6 +26,7 @@ Stores user identity information.
 - Observers and tracked users are both represented as users
 
 
+
 ### 2. `route_sessions`
 Represents metadata from a single tracked trip.
 
@@ -45,6 +46,7 @@ Represents metadata from a single tracked trip.
 - Start and end metadata allow session summaries to reduce storage overhead
 
 
+
 ### 3. `location_points`
 Stores periodic geolocation updates during active route session.
 
@@ -61,6 +63,7 @@ Stores periodic geolocation updates during active route session.
 - Minimal data is temporarily stored in MVP
 
 
+
 ### 4. `trusted_observers`
 Represents longer-lived trust relationships between users
 
@@ -75,6 +78,7 @@ Represents longer-lived trust relationships between users
 - Trust relationships do not automatically grant access to sessions
 
 
+
 ## 5. `session_observers`
 Grants explicit observer access to a specific route session
 
@@ -87,12 +91,14 @@ Grants explicit observer access to a specific route session
 - Observers must already exist in `trusted_observers`
 - Authorization only applies to the associated session
 
+
+
 ## 6. `observer_invite_codes`
 Supports temporary, secure invitation of trusted observers
 
 **Fields:**
 - `code_hash` (TEXT, UNIQUE)
-- `owner_user_id (UUID, FK --> users.id)
+- `owner_user_id` (UUID, FK --> users.id)
 - `expires_at` (TIMESTAMP)
 - `used` (BOOLEAN)
 - `created_time` (TIMESTAMP_)
