@@ -20,7 +20,7 @@ Stores user identity information.
 - `id` (UUID, PK)
 - `email` (TEXT, UNIQUE)
 - `user_name` (TEXT)
-- `created_at` (TIMESTAMP)
+- `created_time` (TIMESTAMP)
 
 **Notes:**
 - Observers and tracked users are both represented as users
@@ -34,8 +34,8 @@ Represents metadata from a single tracked trip.
 - `id` (UUID, PK)
 - `user_id` (UUID, FK --> users.id)
 - `status` (TEXT) --> `active | completed | cancelled`
-- `started_at` (TIMESTAMP)
-- `end_at` (TIMESTAMP, nullable)
+- `started_time` (TIMESTAMP)
+- `end_time` (TIMESTAMP, nullable)
 - `start_latitude` (DECIMAL, nullable)
 - `start_longitude` (DECIMAL, nullable)
 - `end_latitude` (DECIMAL, nullable)
@@ -55,7 +55,7 @@ Stores periodic geolocation updates during active route session.
 - `session_id` (UUID, FK --> route_sessions.id)
 - `latitude` (DECIMAL)
 - `longitude` (DECIMAL)
-- `recorded_at` (TIMESTAMP)
+- `recorded_time` (TIMESTAMP)
 
 **Notes**
 - Data is read-only
@@ -71,7 +71,7 @@ Represents longer-lived trust relationships between users
 - `id` (UUID, PK)
 - `owner_user_id` (UUID, FK --> users.id)
 - `observer_user_id` (UUID, FK --> users.id)
-- `created_at` (TIMESTAMP)
+- `created_time` (TIMESTAMP)
 
 **Notes**
 - Owner grants observer the ability to view sessions
@@ -101,7 +101,7 @@ Supports temporary, secure invitation of trusted observers
 - `owner_user_id` (UUID, FK --> users.id)
 - `expires_at` (TIMESTAMP)
 - `used` (BOOLEAN)
-- `created_at` (TIMESTAMP_)
+- `created_time` (TIMESTAMP_)
 
 **Notes**
 - Invite codes are stored as cryptographic hashes from randomly and securely generated tokens
