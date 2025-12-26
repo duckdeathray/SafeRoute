@@ -47,8 +47,7 @@ RLS policies rely on Supabase authentication
 - Observers may read location points for sessions they are assigned to
 
 **Policy Logic:**
-- Access for owners is inferred via `route_sessions`
-- Access for observers is 
+- Access for owners and observers is inferred via `route_sessions`
 
 
 
@@ -60,3 +59,25 @@ RLS policies rely on Supabase authentication
 **Policy Logic:**
 - Ownership via `owner_user_id = auth.uid()`
 - Observer via `observer_user_id = auth.uid()`
+
+
+
+### 5. `session_observers`
+**Access Rules:**
+- Owners may read, write, and delete observers they have added to the session
+- Observers may read and delete sessions they have been assigned to
+
+**Policy Logic:**
+- Access for owners is inferred via `route_sessions`
+- Observer via `observer_user_id = auth.uid()`
+
+
+
+### 6. `observer_invite_codes`
+**Access Rules:**
+- Owners may read, write, and delete observers they have sent the invite code to
+- Observers may read and delete invite codes they have been sent
+
+**Policy Logic:**
+- Ownership via `owner_user_id = auth.uid()`
+- Observers
